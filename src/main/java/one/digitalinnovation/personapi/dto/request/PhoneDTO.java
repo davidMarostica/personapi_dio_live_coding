@@ -1,0 +1,29 @@
+package one.digitalinnovation.personapi.dto.request;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import one.digitalinnovation.personapi.enums.PhoneType;
+
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PhoneDTO {
+
+    private Long id;
+
+    @Enumerated(EnumType.STRING)
+    private PhoneType type;
+
+    @NotEmpty
+    @Size(min = 13, max = 14)
+    private String number;
+}
